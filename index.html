@@ -1,1 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Swati ❤️</title>
 
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ff9a9e,#fad0c4,#ffdde1);
+overflow-x:hidden;
+text-align:center;
+color:white;
+}
+
+#giftScreen{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+.gift{
+font-size:120px;
+cursor:pointer;
+animation:bounce 1.2s infinite;
+}
+
+@keyframes bounce{
+50%{transform:translateY(-20px);}
+}
+
+h1{
+font-size:55px;
+margin-top:20px;
+text-shadow:0 0 20px red;
+}
+
+#main{
+display:none;
+padding:20px;
+}
+
+.photo{
+width:280px;
+border-radius:20px;
+margin:15px;
+box-shadow:0 0 20px pink;
+transition:.5s;
+}
+
+.photo:hover{
+transform:scale(1.05);
+}
+
+.letter{
+max-width:800px;
+margin:auto;
+background:rgba(255,255,255,.15);
+padding:30px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+font-size:22px;
+line-height:1.8;
+}
+
+button{
+padding:15px 35px;
+font-size:20px;
+border:none;
+border-radius:40px;
+background:#ff0066;
+color:white;
+cursor:pointer;
+margin-top:20px;
+}
+
+button:hover{
+background:#ff3385;
+}
+
+.heart{
+position:fixed;
+top:-30px;
+font-size:25px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh);
+}
+}
+</style>
+</head>
+
+<body>
+
+<div id="giftScreen">
+
+<div class="gift" onclick="openGift()">🎁</div>
+
+<h1>Tap The Gift 🎁</h1>
+
+</div>
+
+<div id="main">
+
+<h1>🎂 Happy Birthday Swati ❤️</h1>
+
+<br><br>
+
+<img src="photo1.jpg" class="photo">
+<img src="photo2.jpg" class="photo">
+<img src="photo3.jpg" class="photo">
+
+<br><br>
+
+<div class="letter">
+
+<h2>💌 My Love Letter</h2>
+
+<br>
+
+<p id="text"></p>
+
+</div>
+
+<br>
+
+<button onclick="alert('I LOVE YOU MERA BUBU ❤️')">
+❤️ Click Me ❤️
+</button>
+
+</div>
+
+<script>
+
+function openGift(){
+
+document.getElementById("giftScreen").style.display="none";
+
+document.getElementById("main").style.display="block";
+
+typeWriter();
+
+setInterval(createHeart,200);
+
+}
+
+const msg=`Happy Birthday My Beautiful Swati ❤️
+
+Jab se tum meri life me aayi ho,
+meri duniya aur bhi khoobsurat ho gayi hai.
+
+Main tumse bahut bahut bahut pyaar karta hoon.
+
+Bhagwan tumhe har khushi de.
+
+Tumhari har wish poori ho.
+
+Main hamesha tumhare saath rahunga.
+
+I really miss those beautiful moments with you.
+
+I LOVE YOU MERA BUBU ❤️`;
+
+let i=0;
+
+function typeWriter(){
+
+if(i<msg.length){
+
+document.getElementById("text").innerHTML+=msg.charAt(i);
+
+i++;
+
+setTimeout(typeWriter,40);
+
+}
+
+}
+
+function createHeart(){
+
+const h=document.createElement("div");
+
+h.className="heart";
+
+h.innerHTML="❤️";
+
+h.style.left=Math.random()*100+"vw";
+
+h.style.animationDuration=(3+Math.random()*3)+"s";
+
+document.body.appendChild(h);
+
+setTimeout(()=>h.remove(),6000);
+
+}
+
+</script>
+
+</body>
+</html>
